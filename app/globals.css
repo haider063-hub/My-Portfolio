@@ -65,6 +65,12 @@
   margin-top: clamp(2.25rem, 5.5vw, 3.5rem);
 }
 
+@media (max-width: 767px) {
+  .lab-section-after-header {
+    margin-top: clamp(1.25rem, 4.2vw, 2rem);
+  }
+}
+
 @media (min-width: 768px) {
   .lab-section-after-header {
     margin-top: clamp(3rem, 5.5vw, 4rem);
@@ -119,7 +125,7 @@
 
 @media (max-width: 767px) {
   .lab-hero-inner {
-    padding-top: clamp(1.25rem, 4vh, 2rem);
+    padding-top: clamp(2.25rem, 8vh, 3.5rem);
     padding-bottom: clamp(2.25rem, 7vh, 3.5rem);
   }
 }
@@ -422,6 +428,25 @@ section.lab-surface-dark.border-t {
   width: 100%;
   padding: 0.15rem 0 0.35rem clamp(0.75rem, 2.8vw, 1.1rem);
   text-align: left;
+}
+
+@media (max-width: 767px) {
+  .lab-section-header {
+    padding: 0.1rem 0 0.2rem 0.7rem;
+  }
+
+  .lab-section-header > h2 {
+    margin-top: 0.85rem;
+  }
+
+  .lab-section-header > .lab-prose {
+    margin-top: 1rem;
+  }
+
+  .lab-section-header::before {
+    top: 0.2rem;
+    bottom: 0.2rem;
+  }
 }
 
 .lab-section-header::before {

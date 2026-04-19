@@ -241,7 +241,7 @@ export default function HomePortfolio() {
             <div className="hero-visual lg:col-span-5">
               <div className="lab-glass rounded-3xl lab-pad-card lg:ml-auto lg:max-w-md">
                 <p className="lab-section-kicker text-xs md:text-sm">At a glance</p>
-                <div className="mt-6 grid gap-6 md:mt-7 md:gap-7">
+                <div className="mt-4 grid gap-4 md:mt-7 md:gap-7">
                   <div>
                     <p className="font-display text-6xl font-semibold leading-none text-[var(--foreground)] md:text-7xl">
                       3+
@@ -280,23 +280,26 @@ export default function HomePortfolio() {
                 production web apps — from discovery through launch.
               </p>
               <ul className="space-y-8 text-lg md:text-xl">
-                <li className="border-l-2 border-[var(--accent)]/50 pl-6">
+                <li className="about-rule border-l-2 pl-6">
                   <span className="font-display font-semibold text-[var(--background)]">3+ years</span>{" "}
                   <span className="text-[var(--on-light-muted)]">
                     shipping production UI, CMS, and integrations.
                   </span>
                 </li>
                 <li className="about-rule border-l-2 pl-6">
-                  <span className="font-display font-semibold text-[var(--background)]">Legal name</span>{" "}
+                  <span className="font-display font-semibold text-[var(--background)]">Legal identity</span>{" "}
                   <span className="text-[var(--on-light-muted)]">
-                    Muhammad Haider Hamayoun — contracts & invoicing under that identity.
+                    Muhammad Haider Hamayoun — contracts, invoicing, and documentation use this
+                    legal name.
                   </span>
                 </li>
-                <li className="border-l-2 border-[var(--accent-dim)]/60 pl-6">
-                  <span className="font-display font-semibold text-[var(--background)]">SiteGrowth</span>{" "}
+                <li className="about-rule border-l-2 pl-6">
+                  <span className="font-display font-semibold text-[var(--background)]">
+                    SiteGrowth role
+                  </span>{" "}
                   <span className="text-[var(--on-light-muted)]">
-                    Part-time Software Engineer from Jul 2025; Senior Software Engineer (Webflow &
-                    full-stack, remote, UK) from Feb 2026.
+                    Joined as Part-time Software Engineer in Jul 2025, promoted to Senior Software
+                    Engineer (Webflow & full-stack, remote UK) in Feb 2026.
                   </span>
                 </li>
               </ul>
