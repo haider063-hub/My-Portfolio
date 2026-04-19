@@ -204,7 +204,7 @@ export default function HomePortfolio() {
       <div id="cursor-dot" className="lab-cursor-dot" aria-hidden />
       <div className="lab-noise" aria-hidden />
 
-      <section className="relative flex h-[100vh] min-h-[100vh] flex-col justify-center overflow-hidden">
+      <section className="relative flex min-h-[100svh] flex-col justify-start overflow-hidden md:h-[100vh] md:min-h-[100vh] md:justify-center">
         <SiteNav items={NAV} calUrl={CAL_BOOKING_URL} heroOverlay />
         <Hero3D />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#0e0d0b]/78 to-[#0e0d0b]" />

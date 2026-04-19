@@ -45,7 +45,7 @@ export default function SiteNav({ items, calUrl = CAL_DEFAULT, heroOverlay = fal
       <nav
         className={
           heroOverlay
-            ? "pointer-events-none absolute left-0 right-0 top-[clamp(1.25rem,3.5vw,2.25rem)] z-[60] w-full"
+            ? "relative z-[60] w-full shrink-0 pt-5 md:pointer-events-none md:absolute md:left-0 md:right-0 md:top-[clamp(1.25rem,3.5vw,2.25rem)] md:pt-0"
             : "relative z-[60] w-full shrink-0 pt-5 md:pt-6"
         }
         aria-label="Primary"

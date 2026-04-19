@@ -117,6 +117,13 @@
   padding-bottom: clamp(3rem, 8vh, 5.5rem);
 }
 
+@media (max-width: 767px) {
+  .lab-hero-inner {
+    padding-top: clamp(1.25rem, 4vh, 2rem);
+    padding-bottom: clamp(2.25rem, 7vh, 3.5rem);
+  }
+}
+
 .lab-work-intro-pad {
   padding-top: var(--section-pad-y);
   padding-bottom: clamp(2.25rem, 5vw, 3.5rem);
