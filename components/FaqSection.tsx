@@ -8,8 +8,8 @@ type FaqSurface = "dark" | "light";
 const itemClassDark = "border border-white/10 bg-white/[0.03]";
 
 const btnHoverClass: Record<FaqSurface, string> = {
-  dark: "hover:bg-white/[0.04]",
-  light: "hover:bg-[color-mix(in_oklab,var(--background)_7%,transparent)]",
+  dark: "md:hover:bg-white/[0.04]",
+  light: "md:hover:bg-[color-mix(in_oklab,var(--background)_7%,transparent)]",
 };
 
 const chevronClass: Record<FaqSurface, string> = {

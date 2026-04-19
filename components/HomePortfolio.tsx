@@ -585,7 +585,7 @@ export default function HomePortfolio() {
                     href="https://github.com/haider063-hub"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-[var(--foreground)]/70 transition hover:text-[var(--foreground)]"
+                    className="text-[var(--foreground)]/70 transition md:hover:text-[var(--foreground)]"
                     aria-label="GitHub"
                   >
                     <svg className="h-5 w-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
@@ -596,7 +596,7 @@ export default function HomePortfolio() {
                     href="https://www.linkedin.com/in/haiderhamayoun/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-[var(--foreground)]/70 transition hover:text-[var(--foreground)]"
+                    className="text-[var(--foreground)]/70 transition md:hover:text-[var(--foreground)]"
                     aria-label="LinkedIn"
                   >
                     <svg className="h-5 w-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
@@ -605,7 +605,7 @@ export default function HomePortfolio() {
                   </a>
                   <a
                     href="mailto:haiderofficial127@gmail.com?subject=Project%20inquiry"
-                    className="text-[var(--foreground)]/70 transition hover:text-[var(--foreground)]"
+                    className="text-[var(--foreground)]/70 transition md:hover:text-[var(--foreground)]"
                     aria-label="Email"
                   >
                     <svg
@@ -626,7 +626,7 @@ export default function HomePortfolio() {
                     href="https://wa.link/7ks4ra"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-[var(--foreground)]/70 transition hover:text-[var(--foreground)]"
+                    className="text-[var(--foreground)]/70 transition md:hover:text-[var(--foreground)]"
                     aria-label="WhatsApp"
                   >
                     <svg className="h-5 w-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
@@ -642,19 +642,19 @@ export default function HomePortfolio() {
                 </h3>
                 <ul className="mt-5 space-y-3 text-[16px] text-[var(--foreground)]/85">
                   <li>
-                    <a href="#about" className="transition hover:text-[var(--accent)]">About</a>
+                    <a href="#about" className="transition md:hover:text-[var(--accent)]">About</a>
                   </li>
                   <li>
-                    <a href="#services" className="transition hover:text-[var(--accent)]">Services</a>
+                    <a href="#services" className="transition md:hover:text-[var(--accent)]">Services</a>
                   </li>
                   <li>
-                    <a href="#work" className="transition hover:text-[var(--accent)]">Work</a>
+                    <a href="#work" className="transition md:hover:text-[var(--accent)]">Work</a>
                   </li>
                   <li>
-                    <a href="#testimonials" className="transition hover:text-[var(--accent)]">Testimonials</a>
+                    <a href="#testimonials" className="transition md:hover:text-[var(--accent)]">Testimonials</a>
                   </li>
                   <li>
-                    <a href="#faq" className="transition hover:text-[var(--accent)]">FAQ</a>
+                    <a href="#faq" className="transition md:hover:text-[var(--accent)]">FAQ</a>
                   </li>
                 </ul>
               </div>
@@ -669,7 +669,7 @@ export default function HomePortfolio() {
                       href={CAL_BOOKING_URL}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="transition hover:text-[var(--accent)]"
+                      className="transition md:hover:text-[var(--accent)]"
                     >
                       Start a project
                     </a>
@@ -677,7 +677,7 @@ export default function HomePortfolio() {
                   <li>
                     <a
                       href="mailto:haiderofficial127@gmail.com?subject=Project%20inquiry"
-                      className="transition hover:text-[var(--accent)]"
+                      className="transition md:hover:text-[var(--accent)]"
                     >
                       Email
                     </a>
@@ -687,7 +687,7 @@ export default function HomePortfolio() {
                       href="https://www.linkedin.com/in/haiderhamayoun/"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="transition hover:text-[var(--accent)]"
+                      className="transition md:hover:text-[var(--accent)]"
                     >
                       LinkedIn
                     </a>
@@ -702,7 +702,7 @@ export default function HomePortfolio() {
               </p>
               <button
                 type="button"
-                className="btn-motion inline-flex items-center gap-2 text-[var(--muted)] transition hover:text-[var(--foreground)]"
+                className="btn-motion inline-flex items-center gap-2 text-[var(--muted)] transition md:hover:text-[var(--foreground)]"
                 onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
               >
                 <span>Back to top</span>

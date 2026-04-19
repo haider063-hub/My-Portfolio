@@ -67,7 +67,7 @@ export default function SiteNav({ items, calUrl = CAL_DEFAULT, heroOverlay = fal
 
             <button
               type="button"
-              className="shrink-0 font-display text-xl font-semibold tracking-tight text-[var(--foreground)]/90 hover:text-[var(--foreground)] md:text-2xl"
+              className="shrink-0 font-display text-xl font-semibold tracking-tight text-[var(--foreground)]/90 md:text-2xl md:hover:text-[var(--foreground)]"
               aria-expanded={open}
               aria-controls={panelId}
               aria-label={open ? "Close menu" : "Open menu"}
@@ -110,7 +110,7 @@ export default function SiteNav({ items, calUrl = CAL_DEFAULT, heroOverlay = fal
         <div className="flex items-center justify-end gap-3">
           <button
             type="button"
-            className="shrink-0 font-display text-xl font-semibold tracking-tight text-[var(--foreground)]/90 hover:text-[var(--foreground)] md:text-2xl"
+            className="shrink-0 font-display text-xl font-semibold tracking-tight text-[var(--foreground)]/90 md:text-2xl md:hover:text-[var(--foreground)]"
             aria-label="Close menu"
             onClick={close}
           >
@@ -128,7 +128,7 @@ export default function SiteNav({ items, calUrl = CAL_DEFAULT, heroOverlay = fal
               key={item.href}
               ref={i === 0 ? firstLinkRef : undefined}
               href={item.href}
-              className="lab-nav-link font-display rounded-xl px-3 py-3 text-lg font-medium tracking-tight text-[var(--foreground)]/90 transition hover:bg-white/[0.06]"
+              className="lab-nav-link font-display rounded-xl px-3 py-3 text-lg font-medium tracking-tight text-[var(--foreground)]/90 transition md:hover:bg-white/[0.06]"
               onClick={close}
             >
               {item.label}

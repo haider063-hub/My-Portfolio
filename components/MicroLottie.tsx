@@ -53,14 +53,14 @@ export default function MicroLottie() {
   if (!mounted || !data) {
     return (
       <div
-        className="h-9 w-9 shrink-0 animate-pulse rounded-full border border-white/15 bg-white/5 md:h-16 md:w-16"
+        className="h-8 w-8 shrink-0 animate-pulse rounded-full border border-white/15 bg-white/5 md:h-16 md:w-16"
         aria-hidden
       />
     );
   }
 
   return (
-    <div className="h-9 w-9 shrink-0 opacity-90 md:h-16 md:w-16" aria-hidden>
+    <div className="h-8 w-8 shrink-0 opacity-90 md:h-16 md:w-16" aria-hidden>
       <Lottie animationData={data} loop className="h-full w-full" />
     </div>
   );

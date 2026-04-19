@@ -304,6 +304,12 @@ section.lab-surface-dark.border-t {
   border-left-color: color-mix(in oklab, var(--background) 20%, transparent) !important;
 }
 
+@media (max-width: 767px) {
+  .lab-surface-light .about-rule {
+    border-left-width: 1px;
+  }
+}
+
 /* Nav bar: compositor-friendly blur on Chromium / Windows */
 .lab-nav-glass {
   border-radius: 9999px;
@@ -332,8 +338,10 @@ section.lab-surface-dark.border-t {
     color 0.2s ease;
 }
 
-.btn-motion:hover {
-  transform: translateY(-2px);
+@media (hover: hover) and (pointer: fine) {
+  .btn-motion:hover {
+    transform: translateY(-2px);
+  }
 }
 
 .btn-motion:active {
@@ -363,8 +371,10 @@ section.lab-surface-dark.border-t {
   box-shadow: 0 14px 44px rgba(201, 168, 108, 0.2);
 }
 
-.btn-primary:hover {
-  box-shadow: 0 18px 52px rgba(201, 168, 108, 0.28);
+@media (hover: hover) and (pointer: fine) {
+  .btn-primary:hover {
+    box-shadow: 0 18px 52px rgba(201, 168, 108, 0.28);
+  }
 }
 
 .btn-ghost {
@@ -380,8 +390,10 @@ section.lab-surface-dark.border-t {
   color: #fff;
 }
 
-.btn-ghost:hover {
-  border-color: rgba(201, 168, 108, 0.45);
+@media (hover: hover) and (pointer: fine) {
+  .btn-ghost:hover {
+    border-color: rgba(201, 168, 108, 0.45);
+  }
 }
 
 .btn-outline {
@@ -396,9 +408,11 @@ section.lab-surface-dark.border-t {
   color: rgba(255, 255, 255, 0.88);
 }
 
-.btn-outline:hover {
-  border-color: rgba(201, 168, 108, 0.4);
-  color: #fff;
+@media (hover: hover) and (pointer: fine) {
+  .btn-outline:hover {
+    border-color: rgba(201, 168, 108, 0.4);
+    color: #fff;
+  }
 }
 
 .lab-section-header {

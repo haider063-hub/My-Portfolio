@@ -138,10 +138,10 @@ export default function WorkProjectRows({ items }: { items: ProjectItem[] }) {
             >
               <div className="max-w-md shrink-0 sm:w-[38%]">
                 <span className="inline-flex items-center gap-2.5">
-                  <h3 className="font-display text-xl font-semibold tracking-tight text-[var(--foreground)] transition-colors group-hover/rl:text-[var(--accent)] md:text-2xl">
+                  <h3 className="font-display text-xl font-semibold tracking-tight text-[var(--foreground)] transition-colors md:group-hover/rl:text-[var(--accent)] md:text-2xl">
                     {project.title}
                   </h3>
-                  <IconArrowRight className="h-4 w-4 shrink-0 rotate-45 text-[var(--muted)] transition group-hover/rl:text-[var(--accent)]" />
+                  <IconArrowRight className="h-4 w-4 shrink-0 rotate-45 text-[var(--muted)] transition md:group-hover/rl:text-[var(--accent)]" />
                 </span>
                 <p className="mt-2 text-xs font-medium uppercase tracking-wide text-[var(--muted)] md:text-sm">
                   {project.tag}
