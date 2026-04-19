@@ -1,0 +1,24 @@
+/**
+ * Same mark as Webflow `692677644b6afeff7e993635_Back-To-Top.svg` (scroll / back-to-top).
+ */
+
+type IconArrowUpProps = {
+  className?: string;
+};
+
+export default function IconArrowUp({ className = "h-3.5 w-3.5 shrink-0" }: IconArrowUpProps) {
+  return (
+    <svg
+      aria-hidden
+      className={className}
+      viewBox="0 0 15 15"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M6.94741 0.659481L6.9488 0.6581H7.94869L7.94731 0.659481H7.94869L7.948 0.776181C8.00263 4.15122 10.4162 6.42507 12.6678 6.42544V7.42533C10.8089 7.42507 9.01685 6.26996 7.948 4.4443L7.94938 14.2347H6.94949L6.94811 4.43877C5.87955 6.26658 4.0872 7.42401 2.22692 7.42395V6.42406C4.49116 6.4241 6.91861 4.12457 6.94672 0.718176C6.94658 0.698642 6.94603 0.679066 6.94603 0.659481H6.94741Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+}
