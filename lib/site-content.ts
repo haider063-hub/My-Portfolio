@@ -32,13 +32,27 @@ export const faqs: FaqItem[] = [
     question: "Do you support after launch?",
     answer: "Yes, I offer post-launch support for fixes, iterations, and performance improvements.",
   },
+  {
+    question: "Do you build AI-powered features?",
+    answer:
+      "Yes. I build RAG pipelines, LLM integrations, streaming AI chat, and PII-safe API dispatch into production applications — using OpenAI, Anthropic, and the Vercel AI SDK. AI is a core part of how I build, not an add-on.",
+  },
 ];
 
 export const projects: ProjectItem[] = [
   {
+    title: "GeneFuel",
+    tag: "Health Tech · Full-Stack SaaS",
+    href: "https://genefuel.co.uk",
+    description:
+      "Clinical longevity platform — hybrid RAG AI assistant, PII-safe LLM dispatch, AWS Textract for lab PDFs, wearables OAuth, Stripe billing, Vonage video consultations, and role-based portals.",
+    image: "/media/projects/genefuel.png",
+    imageAlt: "GeneFuel clinical longevity platform dashboard and branding",
+  },
+  {
     title: "The GP Service",
-    tag: "UK · Healthcare",
-    href: "https://thegpservice.webflow.io/",
+    tag: "Healthcare",
+    href: "https://booking.thegpservice.co.uk/",
     description:
       "Same-day online GP positioning — consultations, prescriptions, and trust signals in a dense Webflow marketing build.",
     image: "/media/projects/the-gp-service.png",
@@ -46,16 +60,34 @@ export const projects: ProjectItem[] = [
   },
   {
     title: "Care Hires",
-    tag: "UK · Social care",
-    href: "https://carehire.webflow.io/",
+    tag: "Social care",
+    href: "https://carehires.com/",
     description:
       "Agency staffing platform story — visibility, compliance, and shift fulfilment for care providers on Webflow.",
     image: "/media/projects/carehires.png",
     imageAlt: "Care Hires platform marketing site with stats and provider messaging",
   },
   {
+    title: "DocNow",
+    tag: "Healthcare",
+    href: "https://docnow-site.webflow.io/",
+    description:
+      "AI-assisted clinical triage — patients describe symptoms to Sarah AI, clinician reviews and issues prescriptions, fit notes, or referrals.",
+    image: "/media/projects/docnow.png",
+    imageAlt: "DocNow AI-assisted clinical triage platform",
+  },
+  {
+    title: "MyUniGP",
+    tag: "Student Healthcare",
+    href: "https://myunigp.webflow.io/",
+    description:
+      "Online GP service for university students — sick notes, prescriptions, referrals, and video GP consultations. Same-day decisions.",
+    image: "/media/projects/myunigp.png",
+    imageAlt: "MyUniGP online GP service for university students",
+  },
+  {
     title: "Pure Elements",
-    tag: "Abu Dhabi · AI",
+    tag: "AI",
     href: "https://www.petech.ae/",
     description: "AI-forward product marketing and enterprise-grade Webflow delivery.",
     image: "/media/projects/pure-elements.png",
@@ -63,10 +95,10 @@ export const projects: ProjectItem[] = [
   },
   {
     title: "Cogeter Fitness",
-    tag: "Dubai · Commerce",
-    href: "https://fitness.cogeter.com/",
-    description: "Commerce experience for a Dubai fitness brand with fast storefront UX.",
-    image: "/media/projects/cogeter-fitness.png",
+    tag: "Commerce",
+    href: "https://trainwithlev.com/",
+    description: "Commerce experience for a fitness brand with fast storefront UX.",
+    image: "/media/projects/cogeter-fitness.png?v=2",
     imageAlt: "Cogeter Fitness brand and storefront imagery",
   },
   {
@@ -78,14 +110,6 @@ export const projects: ProjectItem[] = [
     imageAlt: "Dental ID clinical SaaS marketing visuals",
   },
   {
-    title: "TNTOpenMind",
-    tag: "Healthcare narrative",
-    href: "https://tntopenmind.org/",
-    description: "Healthcare storytelling site with clear donor and community pathways.",
-    image: "/media/projects/tnt-openminds.png",
-    imageAlt: "TNTOpenMind healthcare storytelling imagery",
-  },
-  {
     title: "Lithia Rewards",
     tag: "Enterprise",
     href: "https://totalrewards.lithiadriveway.com/",
@@ -94,27 +118,27 @@ export const projects: ProjectItem[] = [
     imageAlt: "Lithia Rewards enterprise programme visuals",
   },
   {
-    title: "GeneFuel",
-    tag: "Longevity",
-    href: "https://genefuel.webflow.io/",
-    description: "Longevity brand prototype with science-led sections and premium pacing.",
-    image: "/media/projects/genefuel.png",
-    imageAlt: "GeneFuel longevity brand imagery",
+    title: "TNTOpenMind",
+    tag: "Healthcare narrative",
+    href: "https://tntopenmind.org/",
+    description: "Healthcare storytelling site with clear donor and community pathways.",
+    image: "/media/projects/tnt-openminds.png",
+    imageAlt: "TNTOpenMind healthcare storytelling imagery",
   },
 ];
 
 export const services = [
   {
     title: "Webflow & CMS",
-    body: "Marketing sites, CMS architecture, interactions, and a clean handoff so your team can edit with confidence.",
+    body: "Marketing sites, CMS architecture, Client-First framework, Finsweet Attributes, GSAP animations, and a clean handoff so your team can edit with confidence.",
   },
   {
     title: "Next.js & React",
-    body: "App Router, performance budgets, and UI that stays fast as features and traffic grow.",
+    body: "App Router, TypeScript, performance budgets, auth, Stripe billing, and AI feature integration that stays fast as features and traffic grow.",
   },
   {
     title: "APIs & integration",
-    body: "Node services, auth, payments, and the glue between your design system and real data.",
+    body: "PostgreSQL schema design, RAG pipelines, LLM integration, wearables OAuth, AWS Textract, Stripe webhooks — the full backend your product needs.",
   },
 ];
 
@@ -198,33 +222,26 @@ export const testimonials: Testimonial[] = [
   },
 ];
 
-export const skills: { label: string; v: number }[] = [
-  { label: "Webflow / CMS", v: 0.95 },
-  { label: "React / Next.js", v: 0.92 },
-  { label: "Node / APIs", v: 0.88 },
-  { label: "Motion · GSAP / anime.js", v: 0.9 },
+export const skills: { name: string; level: number }[] = [
+  { name: "Next.js / React", level: 92 },
+  { name: "TypeScript", level: 90 },
+  { name: "AI / LLM Integration", level: 90 },
+  { name: "Webflow / CMS", level: 95 },
+  { name: "PostgreSQL / APIs", level: 88 },
+  { name: "Node.js / Backend", level: 86 },
+  { name: "Motion · GSAP / anime.js", level: 88 },
 ];
 
 export const timeline = [
   {
-    year: "Feb 2026—present",
+    year: "Jan 2025—present",
     title: "Senior Software Engineer | Full-stack engineer & Webflow",
     org: "SiteGrowth · London Area, UK · Remote",
   },
   {
-    year: "Jul 2025—present",
-    title: "Software Engineer",
-    org: "SiteGrowth · London Area, UK · Remote · Part-time",
-  },
-  {
-    year: "Jan 2025—present",
-    title: "Webflow Developer",
-    org: "Prime Start Capital · London, UK · Remote · Part-time",
-  },
-  {
     year: "Feb 2025—Jan 2026",
     title: "Webflow Developer",
-    org: "Pure Elements Technologies · Dubai, UAE · Remote · Full-time",
+    org: "Pure Elements Technologies · Dubai, UAE · Remote",
   },
   {
     year: "Dec 2023—Feb 2025",
@@ -238,7 +255,7 @@ export const timeline = [
   },
 ];
 
-export type BuildPrincipleIconId = "performance" | "cms" | "motion" | "handover";
+export type BuildPrincipleIconId = "performance" | "cms" | "motion" | "handover" | "ai";
 
 export type BuildPrinciple = { title: string; body: string; icon: BuildPrincipleIconId };
 
@@ -263,5 +280,10 @@ export const buildPrinciples: BuildPrinciple[] = [
     icon: "handover",
     title: "Clear handover",
     body: "Written scope and milestones, plus light documentation so stakeholders know what shipped, where it lives, and how to extend it safely.",
+  },
+  {
+    icon: "ai",
+    title: "AI-native builds",
+    body: "LLM integration, RAG pipelines, and PII-safe API dispatch built into production systems — not bolted on after launch.",
   },
 ];

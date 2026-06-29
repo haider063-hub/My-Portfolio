@@ -1,12 +1,9 @@
 "use client";
 
 import { useEffect } from "react";
-import dynamic from "next/dynamic";
 import Lenis from "lenis";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import Magnetic from "./Magnetic";
-import MicroLottie from "./MicroLottie";
 import AnimeLabEffects from "./AnimeLabEffects";
 import SiteNav from "./SiteNav";
 import IconArrowRight from "./IconArrowRight";
@@ -26,26 +23,19 @@ import {
   timeline,
 } from "@/lib/site-content";
 
-const Hero3D = dynamic(() => import("./Hero3D"), { ssr: false });
-
 const CAL_BOOKING_URL =
   "https://cal.com/muhammad-haider-hamayoun/15min?overlayCalendar=true";
 
 const NAV = [
   { href: "#about", label: "About" },
   { href: "#services", label: "Services" },
-  { href: "#steps", label: "Steps" },
   { href: "#work", label: "Work" },
-  { href: "#testimonials", label: "Proof" },
-  { href: "#skills", label: "Skills" },
-  { href: "#approach", label: "Approach" },
-  { href: "#faq", label: "FAQ" },
+  { href: "#experience", label: "Experience" },
   { href: "#contact", label: "Contact" },
 ];
 
 export default function HomePortfolio() {
   useEffect(() => {
-    document.body.classList.add("is-lab");
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     gsap.registerPlugin(ScrollTrigger);
@@ -139,103 +129,43 @@ export default function HomePortfolio() {
       lenis?.destroy();
       ctx.revert();
       ScrollTrigger.getAll().forEach((t) => t.kill());
-      document.body.classList.remove("is-lab");
-      delete document.body.dataset.cursorSurface;
-    };
-  }, []);
-
-  useEffect(() => {
-    if (window.matchMedia("(pointer: coarse)").matches) return;
-    const ring = document.getElementById("cursor-ring");
-    const dot = document.getElementById("cursor-dot");
-    if (!ring || !dot) return;
-    let mx = window.innerWidth / 2;
-    let my = window.innerHeight / 2;
-    let rx = mx;
-    let ry = my;
-    let dx = mx;
-    let dy = my;
-    let lastSurface: "light" | "dark" = "dark";
-
-    const cursorSurface = (x: number, y: number): "light" | "dark" => {
-      const el = document.elementFromPoint(x, y);
-      if (!el) return "dark";
-      if (el.closest(".lab-nav-shell") || el.closest(".lab-drawer-glass")) return "dark";
-      if (el.closest(".lab-surface-light")) return "light";
-      return "dark";
-    };
-
-    const onMove = (e: MouseEvent) => {
-      mx = e.clientX;
-      my = e.clientY;
-      const s = cursorSurface(mx, my);
-      if (s !== lastSurface) {
-        lastSurface = s;
-        document.body.dataset.cursorSurface = s;
-      }
-    };
-
-    document.body.dataset.cursorSurface = cursorSurface(mx, my);
-    lastSurface = document.body.dataset.cursorSurface as "light" | "dark";
-
-    let raf = 0;
-    const loop = () => {
-      rx += (mx - rx) * 0.14;
-      ry += (my - ry) * 0.14;
-      dx += (mx - dx) * 0.42;
-      dy += (my - dy) * 0.42;
-      ring.style.transform = `translate3d(${rx}px,${ry}px,0)`;
-      dot.style.transform = `translate3d(${dx}px,${dy}px,0)`;
-      raf = requestAnimationFrame(loop);
-    };
-    raf = requestAnimationFrame(loop);
-    window.addEventListener("mousemove", onMove, { passive: true });
-    return () => {
-      cancelAnimationFrame(raf);
-      window.removeEventListener("mousemove", onMove);
-      delete document.body.dataset.cursorSurface;
     };
   }, []);
 
   return (
     <>
       <AnimeLabEffects />
-      <div id="cursor-ring" className="lab-cursor-ring" aria-hidden />
-      <div id="cursor-dot" className="lab-cursor-dot" aria-hidden />
       <div className="lab-noise" aria-hidden />
 
-      <section className="relative flex min-h-[100svh] flex-col justify-start overflow-hidden md:h-[100vh] md:min-h-[100vh] md:justify-center">
-        <SiteNav items={NAV} calUrl={CAL_BOOKING_URL} heroOverlay />
-        <Hero3D />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#0e0d0b]/78 to-[#0e0d0b]" />
+      <SiteNav items={NAV} calUrl={CAL_BOOKING_URL} />
+
+      <section className="lab-surface-dark relative flex min-h-[100svh] flex-col justify-start overflow-hidden border-b border-white/[0.06] md:h-[100vh] md:min-h-[100vh] md:justify-center">
         <div className="lab-section lab-hero-inner relative z-10 w-full">
           <div className="grid items-center gap-6 md:gap-8 lg:grid-cols-12 lg:gap-10">
             <div className="min-w-0 lg:col-span-7">
               <p className="hero-sub lab-section-kicker mb-3 max-w-xl text-xs md:text-sm">
                 Muhammad Haider Hamayoun
               </p>
-              <h1 className="font-display text-[clamp(2.75rem,8vw,5.75rem)] font-semibold leading-[1.15] tracking-tight [perspective:1200px]">
+              <h1 className="[perspective:1200px]">
                 <div className="hero-line text-gradient whitespace-normal sm:whitespace-nowrap">
-                  Software engineer
+                  AI Product Engineer
                 </div>
-                <div className="hero-line mt-1.5 text-[var(--foreground)]">for the edge.</div>
+                <div className="hero-line mt-1.5 text-[var(--foreground)]">for production.</div>
               </h1>
               <p className="hero-sub mt-5 max-w-2xl text-lg leading-relaxed text-[var(--muted)] md:text-xl">
-                Webflow, Next.js, and full-stack builds for teams that care about clarity,
-                performance, and launch-ready polish — 3+ years with clients in the US, UK, and
-                UAE.
+                Next.js, RAG pipelines, TypeScript — shipping production AI SaaS and Webflow sites
+                for UK, UAE, and US teams.
               </p>
               <div className="mt-6 flex flex-wrap items-center gap-4 md:mt-7 md:gap-5">
                 <a
                   href={CAL_BOOKING_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn-primary btn-motion inline-flex items-center gap-2 text-[16px]"
+                  className="btn-primary btn-motion inline-flex items-center gap-2"
                 >
                   <span>Start a project</span>
-                  <IconArrowRight className="h-4 w-4 rotate-45" />
+                  <IconArrowRight className="btn-arrow h-4 w-4" />
                 </a>
-                <MicroLottie />
               </div>
             </div>
             <div className="hero-visual lg:col-span-5">
@@ -243,14 +173,14 @@ export default function HomePortfolio() {
                 <p className="lab-section-kicker text-xs md:text-sm">At a glance</p>
                 <div className="mt-4 grid gap-4 md:mt-7 md:gap-7">
                   <div>
-                    <p className="font-display text-6xl font-semibold leading-none text-[var(--foreground)] md:text-7xl">
+                    <p className="font-display lab-stat-lg text-[var(--foreground)]">
                       3+
                     </p>
                     <p className="mt-1.5 text-lg text-[var(--muted)]">Years in production UI & APIs</p>
                   </div>
                   <div className="h-px bg-gradient-to-r from-[var(--accent)]/35 via-white/10 to-transparent" />
                   <div>
-                    <p className="font-display text-3xl font-semibold text-[var(--foreground)] md:text-4xl">
+                    <p className="font-display lab-stat-md text-[var(--foreground)]">
                       Global
                     </p>
                     <p className="mt-1.5 text-lg text-[var(--muted)]">
@@ -268,38 +198,44 @@ export default function HomePortfolio() {
         <div className="lab-section lab-section-pad">
           <div className="lab-section-header">
             <p className="lab-section-kicker text-xs md:text-sm">Chapter 01 · About</p>
-            <h2 className="reveal-line font-display mt-5 text-4xl font-semibold md:text-6xl">
-              Engineering-first interfaces
-            </h2>
+            <h2 className="reveal-line">Engineering-first interfaces</h2>
           </div>
           <div className="lab-glass-on-light reveal-line lab-section-after-header rounded-3xl lab-pad-panel">
             <div className="grid gap-8 md:gap-12 lg:grid-cols-2 lg:gap-16">
-              <p className="lab-prose text-lg md:text-xl">
-                Freelance full-stack developer based in Pakistan. I ship scoped work for
-                international teams: Webflow sites, React and Next.js frontends, Node APIs, and
-                production web apps — from discovery through launch.
-              </p>
+              <div className="lab-prose text-lg md:text-xl">
+                <p>
+                  Full-stack AI Product Engineer based in Pakistan. I build end-to-end SaaS platforms
+                  and Webflow marketing sites for international teams — from database schema and API
+                  design to auth, billing, and production deployment.
+                </p>
+                <p className="mt-6">
+                  Recent builds include a clinical longevity platform (GeneFuel) and an AI therapy
+                  platform (EchoNest). Both are live in production serving real UK clients.
+                </p>
+              </div>
               <ul className="space-y-8 text-lg md:text-xl">
                 <li className="about-rule border-l-2 pl-6">
-                  <span className="font-display font-semibold text-[var(--background)]">3+ years</span>{" "}
+                  <span className="font-display lab-heading-inline text-[var(--background)]">3+ years</span>{" "}
                   <span className="text-[var(--on-light-muted)]">
-                    shipping production UI, CMS, and integrations.
+                    shipping full-stack AI products and Webflow builds.
                   </span>
                 </li>
                 <li className="about-rule border-l-2 pl-6">
-                  <span className="font-display font-semibold text-[var(--background)]">Legal identity</span>{" "}
+                  <span className="font-display lab-heading-inline text-[var(--background)]">Stack</span>{" "}
                   <span className="text-[var(--on-light-muted)]">
-                    Muhammad Haider Hamayoun — contracts, invoicing, and documentation use this
-                    legal name.
+                    Next.js · TypeScript · PostgreSQL · OpenAI · Anthropic
                   </span>
                 </li>
                 <li className="about-rule border-l-2 pl-6">
-                  <span className="font-display font-semibold text-[var(--background)]">
+                  <span className="font-display lab-heading-inline text-[var(--background)]">Legal identity</span>{" "}
+                  <span className="text-[var(--on-light-muted)]">Muhammad Haider Hamayoun</span>
+                </li>
+                <li className="about-rule border-l-2 pl-6">
+                  <span className="font-display lab-heading-inline text-[var(--background)]">
                     SiteGrowth role
                   </span>{" "}
                   <span className="text-[var(--on-light-muted)]">
-                    Joined as Part-time Software Engineer in Jul 2025, promoted to Senior Software
-                    Engineer (Webflow & full-stack, remote UK) in Feb 2026.
+                    Senior Software Engineer (Jan 2025–present, remote UK)
                   </span>
                 </li>
               </ul>
@@ -312,9 +248,7 @@ export default function HomePortfolio() {
         <div className="lab-section lab-section-pad">
           <div className="lab-section-header">
             <p className="lab-section-kicker text-xs md:text-sm">Chapter 02 · Services</p>
-            <h2 className="reveal-line font-display mt-5 text-4xl font-semibold md:text-6xl">
-              What I deliver
-            </h2>
+            <h2 className="reveal-line">What I deliver</h2>
             <p className="reveal-line lab-prose mt-8 max-w-3xl text-lg md:text-xl">
               Retainers and fixed-scope projects: design systems in code, CMS structures your team
               can own, and performance that holds up under real traffic.
@@ -323,9 +257,7 @@ export default function HomePortfolio() {
           <div className="lab-section-after-header grid gap-5 sm:gap-6 md:grid-cols-3">
             {services.map((s) => (
               <div key={s.title} className="reveal-line lab-glass flex flex-col rounded-2xl lab-pad-card">
-                <h3 className="font-display text-xl font-semibold text-[var(--foreground)] md:text-2xl">
-                  {s.title}
-                </h3>
+                <h3 className="text-[var(--foreground)]">{s.title}</h3>
                 <p className="lab-prose mt-5 text-base leading-relaxed md:text-lg">{s.body}</p>
               </div>
             ))}
@@ -337,12 +269,9 @@ export default function HomePortfolio() {
         <div className="lab-section lab-section-pad">
           <div className="lab-section-header">
             <p className="lab-section-kicker text-xs md:text-sm">Chapter 03 · Process</p>
-            <h2 className="reveal-line font-display mt-5 text-4xl font-semibold md:text-6xl">
-              From brief to launch
-            </h2>
+            <h2 className="reveal-line">From brief to launch</h2>
             <p className="reveal-line lab-prose mt-8 max-w-3xl text-lg md:text-xl">
-              A clear sequence you can line up with stakeholders and contracts — adjust the wording
-              to match how you actually sell and deliver.
+              A clear sequence you can line up with stakeholders and contracts.
             </p>
           </div>
           <div className="relative lab-section-after-header">
@@ -356,12 +285,10 @@ export default function HomePortfolio() {
                   key={s.step}
                   className="reveal-line lab-glass-on-light relative rounded-2xl lab-pad-card lg:pt-12"
                 >
-                  <span className="font-display text-4xl font-semibold tabular-nums text-[var(--on-light-accent)] md:text-5xl">
+                  <span className="font-display lab-step-index tabular-nums text-[var(--on-light-accent)]">
                     {s.step}
                   </span>
-                  <h3 className="font-display mt-6 text-xl font-semibold text-[var(--background)] md:text-2xl">
-                    {s.title}
-                  </h3>
+                  <h3 className="mt-6 text-[var(--background)]">{s.title}</h3>
                   <p className="mt-4 text-[16px] leading-[1.65] text-[var(--on-light-muted)]">{s.body}</p>
                 </div>
               ))}
@@ -374,12 +301,8 @@ export default function HomePortfolio() {
         <div className="lab-section lab-section-pad">
           <div className="lab-section-header">
             <p className="lab-section-kicker text-xs md:text-sm">Chapter 04 · Work</p>
-            <h2 className="font-display mt-5 text-4xl font-semibold md:text-6xl">Selected launches</h2>
+            <h2>Selected launches</h2>
           </div>
-          <p className="lab-prose mt-8 max-w-3xl text-lg text-[var(--foreground)]/80 md:text-xl">
-            One project per row — hover for a sharp square preview that follows your pointer; the image
-            shifts slightly inside the tile.
-          </p>
           <div className="lab-section-after-header">
             <WorkProjectRows items={projects} />
           </div>
@@ -389,12 +312,10 @@ export default function HomePortfolio() {
       <section id="testimonials" className="lab-surface-light">
         <div className="lab-section pt-[var(--section-pad-y)] pb-4 md:pb-5">
           <div className="lab-section-header">
-            <p className="lab-section-kicker text-xs md:text-sm">04 — TESTIMONIALS</p>
-            <h2 className="reveal-line font-display mt-5 text-4xl font-semibold tracking-tight md:text-5xl lg:text-6xl">
-              What they say about me
-            </h2>
+            <p className="lab-section-kicker text-xs md:text-sm">Chapter 05 · Testimonials</p>
+            <h2 className="reveal-line">What they say about me</h2>
             <p className="reveal-line lab-prose mt-8 max-w-3xl text-lg md:text-xl">
-              Quotes from the public portfolio — same voices and context as the original site.
+              What clients say
             </p>
           </div>
         </div>
@@ -407,9 +328,7 @@ export default function HomePortfolio() {
         <div className="lab-section lab-section-pad-loose">
           <div className="lab-section-header">
             <p className="lab-section-kicker text-xs md:text-sm">Chapter 06 · Skills</p>
-            <h2 className="reveal-line font-display mt-5 text-4xl font-semibold md:text-6xl">
-              Capabilities
-            </h2>
+            <h2 className="reveal-line">Capabilities</h2>
             <p className="reveal-line lab-prose mt-8 max-w-3xl text-lg md:text-xl">
               Self-assessed emphasis — a technical interview still tells the full story.
             </p>
@@ -417,10 +336,10 @@ export default function HomePortfolio() {
           <div className="lab-glass lab-section-after-header rounded-3xl lab-pad-panel">
             <div className="grid gap-8 md:grid-cols-2 md:gap-10 lg:gap-12">
               {skills.map((s) => (
-                <div key={s.label} className="skill-track" data-fill={String(s.v)}>
+                <div key={s.name} className="skill-track" data-fill={String(s.level / 100)}>
                   <div className="flex justify-between text-base text-[var(--foreground)]/90 md:text-lg">
-                    <span>{s.label}</span>
-                    <span className="text-[var(--muted)]">{Math.round(s.v * 100)}%</span>
+                    <span>{s.name}</span>
+                    <span className="text-[var(--muted)]">{s.level}%</span>
                   </div>
                   <div className="mt-4 h-2 w-full overflow-hidden rounded-full bg-white/10">
                     <div className="skill-bar h-full origin-left scale-x-0 rounded-full bg-gradient-to-r from-[var(--accent)] to-[var(--accent-dim)]" />
@@ -436,15 +355,13 @@ export default function HomePortfolio() {
         <div className="lab-section lab-section-pad">
           <div className="lab-section-header">
             <p className="lab-section-kicker text-xs md:text-sm">Chapter 07 · Delivery</p>
-            <h2 className="reveal-line font-display mt-5 text-4xl font-semibold md:text-6xl">
-              How I ship
-            </h2>
+            <h2 className="reveal-line">How I ship</h2>
             <p className="reveal-line lab-prose mt-8 max-w-3xl text-lg md:text-xl">
               What you get beyond the stack — how scopes are run, sites stay fast, and your team
               stays unblocked after launch.
             </p>
           </div>
-          <div className="lab-section-after-header grid gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-4">
+          <div className="lab-section-after-header grid gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
             {buildPrinciples.map((item) => (
               <div
                 key={item.title}
@@ -456,9 +373,7 @@ export default function HomePortfolio() {
                 >
                   <ShipPrincipleIcon id={item.icon} />
                 </div>
-                <h3 className="font-display text-lg font-semibold text-[var(--background)] md:text-xl">
-                  {item.title}
-                </h3>
+                <h3 className="text-[var(--background)]">{item.title}</h3>
                 <p className="mt-3 text-[16px] leading-[1.65] text-[var(--on-light-muted)]">
                   {item.body}
                 </p>
@@ -472,23 +387,21 @@ export default function HomePortfolio() {
         <div className="lab-section lab-section-pad-loose">
           <div className="lab-section-header">
             <p className="lab-section-kicker text-xs md:text-sm">Chapter 08 · Experience</p>
-            <h2 className="reveal-line font-display mt-5 text-4xl font-semibold md:text-6xl">
-              Timeline
-            </h2>
+            <h2 className="reveal-line">Timeline</h2>
           </div>
           <div className="lab-glass lab-section-after-header rounded-3xl lab-pad-panel">
             <div className="relative">
               <div
-                className="pointer-events-none absolute bottom-4 left-[10px] top-4 z-0 w-px -translate-x-1/2 bg-white/15 md:left-3 md:bottom-5 md:top-5"
+                className="pointer-events-none absolute bottom-4 left-[10px] top-4 z-0 hidden w-px -translate-x-1/2 bg-white/15 md:block md:left-3 md:bottom-5 md:top-5"
                 aria-hidden
               />
               <ul className="relative z-[1] flex flex-col gap-10 md:gap-12">
               {timeline.map((t) => (
                 <li
                   key={`${t.year}-${t.org}`}
-                  className="reveal-line flex gap-4 sm:gap-5 md:gap-6"
+                  className="reveal-line flex gap-0 md:gap-6"
                 >
-                  <div className="relative z-[2] flex w-5 shrink-0 justify-center self-start md:w-6">
+                  <div className="relative z-[2] hidden w-5 shrink-0 justify-center self-start md:flex md:w-6">
                     <div
                       className="lab-timeline-dot mt-0.5 h-3 w-3 shrink-0 rounded-full border-2 border-[var(--accent)]/75 bg-[var(--background)] shadow-[0_0_18px_rgba(201,168,108,0.35)] md:mt-1 md:h-[14px] md:w-[14px]"
                       aria-hidden
@@ -496,9 +409,7 @@ export default function HomePortfolio() {
                   </div>
                   <div className="min-w-0 flex-1 pt-0.5">
                     <p className="text-sm uppercase tracking-widest text-[var(--muted)]">{t.year}</p>
-                    <h3 className="font-display mt-2 text-2xl font-semibold text-[var(--foreground)] md:text-3xl">
-                      {t.title}
-                    </h3>
+                    <h3 className="mt-2 text-[var(--foreground)]">{t.title}</h3>
                     <p className="mt-2 text-lg text-[var(--muted)]">{t.org}</p>
                   </div>
                 </li>
@@ -512,10 +423,8 @@ export default function HomePortfolio() {
       <section id="faq" className="lab-surface-light">
         <div className="lab-section lab-section-pad-loose">
           <div className="lab-section-header">
-            <p className="lab-section-kicker text-xs md:text-sm">06 — FAQ</p>
-            <h2 className="reveal-line font-display mt-5 text-4xl font-semibold md:text-6xl">
-              Frequently Asked Questions
-            </h2>
+            <p className="lab-section-kicker text-xs md:text-sm">Chapter 09 · FAQ</p>
+            <h2 className="reveal-line">Frequently Asked Questions</h2>
             <p className="reveal-line lab-prose mt-8 max-w-3xl text-lg md:text-xl">
               Quick answers about timeline, communication, payments, and delivery.
             </p>
@@ -526,14 +435,12 @@ export default function HomePortfolio() {
         </div>
       </section>
 
-      <section id="contact" className="lab-surface-dark border-t border-white/[0.06]">
+      <section id="contact" className="lab-surface-dark lab-surface-dark--flat border-t border-white/[0.06]">
         <div className="lab-section lab-section-pad">
           <div className="reveal-line lab-glass rounded-3xl lab-pad-panel lab-pad-panel--contact">
             <div className="lab-section-header max-w-3xl">
-              <p className="lab-section-kicker text-xs md:text-sm">Chapter 09 · Contact</p>
-              <h2 className="font-display mt-5 text-4xl font-semibold text-[var(--foreground)] md:text-5xl lg:text-6xl">
-                Let&apos;s talk about your build
-              </h2>
+              <p className="lab-section-kicker text-xs md:text-sm">Chapter 10 · Contact</p>
+              <h2 className="text-[var(--foreground)]">Let&apos;s talk about your build</h2>
             </div>
             <p className="lab-prose mt-8 max-w-2xl text-lg md:text-xl">
               Email works best for scope and paperwork. For a first chat, book a short call — paid
@@ -544,24 +451,16 @@ export default function HomePortfolio() {
                 href={CAL_BOOKING_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-primary btn-motion inline-flex items-center gap-2 text-[16px]"
+                className="btn-primary btn-motion inline-flex items-center gap-2"
               >
                 <span>Start a project</span>
-                <IconArrowRight className="h-4 w-4 rotate-45" />
+                <IconArrowRight className="btn-arrow h-4 w-4" />
               </a>
               <a
                 href="mailto:haiderofficial127@gmail.com?subject=Project%20inquiry"
                 className="btn-ghost btn-motion"
               >
                 haiderofficial127@gmail.com
-              </a>
-              <a
-                href="https://www.linkedin.com/in/haiderhamayoun/"
-                target="_blank"
-                rel="noreferrer"
-                className="btn-outline btn-motion"
-              >
-                LinkedIn
               </a>
             </div>
           </div>
@@ -575,20 +474,20 @@ export default function HomePortfolio() {
               <div className="md:col-span-5">
                 <a
                   href="#"
-                  className="inline-block font-display text-2xl font-semibold tracking-tight text-[var(--foreground)]"
+                  className="font-display lab-nav-brand inline-block text-[var(--foreground)]"
                 >
                   MW
                 </a>
                 <p className="mt-5 max-w-sm text-[16px] leading-relaxed">
-                  Full-stack engineer — Webflow, Next.js, and APIs for US, UK, and UAE teams. Clear
-                  scope, steady communication, launch-ready delivery.
+                  AI Product Engineer — Next.js, TypeScript, RAG pipelines, and Webflow for UK, UAE,
+                  and US teams.
                 </p>
-                <div className="mt-7 flex items-center gap-5">
+                <div className="lab-footer-social mt-7">
                   <a
                     href="https://github.com/haider063-hub"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-[var(--foreground)]/70 transition md:hover:text-[var(--foreground)]"
+                    className="lab-footer-social-link"
                     aria-label="GitHub"
                   >
                     <svg className="h-5 w-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
@@ -599,7 +498,7 @@ export default function HomePortfolio() {
                     href="https://www.linkedin.com/in/haiderhamayoun/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-[var(--foreground)]/70 transition md:hover:text-[var(--foreground)]"
+                    className="lab-footer-social-link"
                     aria-label="LinkedIn"
                   >
                     <svg className="h-5 w-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
@@ -608,7 +507,7 @@ export default function HomePortfolio() {
                   </a>
                   <a
                     href="mailto:haiderofficial127@gmail.com?subject=Project%20inquiry"
-                    className="text-[var(--foreground)]/70 transition md:hover:text-[var(--foreground)]"
+                    className="lab-footer-social-link"
                     aria-label="Email"
                   >
                     <svg
@@ -629,7 +528,7 @@ export default function HomePortfolio() {
                     href="https://wa.link/7ks4ra"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-[var(--foreground)]/70 transition md:hover:text-[var(--foreground)]"
+                    className="lab-footer-social-link"
                     aria-label="WhatsApp"
                   >
                     <svg className="h-5 w-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
@@ -640,7 +539,7 @@ export default function HomePortfolio() {
               </div>
 
               <div className="md:col-span-3 md:col-start-7">
-                <h3 className="text-[11px] font-bold uppercase tracking-wide text-[var(--muted)]">
+                <h3 className="lab-footer-label">
                   On this site
                 </h3>
                 <ul className="mt-5 space-y-3 text-[16px] text-[var(--foreground)]/85">
@@ -648,10 +547,13 @@ export default function HomePortfolio() {
                     <a href="#about" className="transition md:hover:text-[var(--accent)]">About</a>
                   </li>
                   <li>
+                    <a href="#work" className="transition md:hover:text-[var(--accent)]">Work</a>
+                  </li>
+                  <li>
                     <a href="#services" className="transition md:hover:text-[var(--accent)]">Services</a>
                   </li>
                   <li>
-                    <a href="#work" className="transition md:hover:text-[var(--accent)]">Work</a>
+                    <a href="#experience" className="transition md:hover:text-[var(--accent)]">Experience</a>
                   </li>
                   <li>
                     <a href="#testimonials" className="transition md:hover:text-[var(--accent)]">Testimonials</a>
@@ -663,7 +565,7 @@ export default function HomePortfolio() {
               </div>
 
               <div className="md:col-span-3">
-                <h3 className="text-[11px] font-bold uppercase tracking-wide text-[var(--muted)]">
+                <h3 className="lab-footer-label">
                   Connect
                 </h3>
                 <ul className="mt-5 space-y-3 text-[16px] text-[var(--foreground)]/85">
@@ -705,7 +607,7 @@ export default function HomePortfolio() {
               </p>
               <button
                 type="button"
-                className="btn-motion inline-flex items-center gap-2 text-[var(--muted)] transition md:hover:text-[var(--foreground)]"
+                className="btn-text btn-motion inline-flex items-center gap-2 text-[var(--muted)] transition md:hover:text-[var(--foreground)]"
                 onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
               >
                 <span>Back to top</span>

@@ -124,7 +124,7 @@ export default function WorkProjectRows({ items }: { items: ProjectItem[] }) {
       <ul className="list-none p-0 m-0">
         {items.map((project, i) => (
           <li
-            key={project.title}
+            key={`${project.title}-${project.href}`}
             className="work-simple-row group/row border-t border-white/[0.08] py-5 first:pt-3 last:pb-0 md:py-6 md:first:pt-4"
             onMouseEnter={(e) => updatePreview(e, e.currentTarget, i)}
             onMouseMove={(e) => updatePreview(e, e.currentTarget, i)}
@@ -138,14 +138,14 @@ export default function WorkProjectRows({ items }: { items: ProjectItem[] }) {
             >
               <div className="max-w-md shrink-0 sm:w-[38%]">
                 <span className="inline-flex items-center gap-2.5">
-                  <h3 className="font-display text-xl font-semibold tracking-tight text-[var(--foreground)] transition-colors md:group-hover/rl:text-[var(--accent)] md:text-2xl">
+                  <h3 className="text-[var(--foreground)] transition-colors md:group-hover/rl:text-[var(--accent)]">
                     {project.title}
                   </h3>
-                  <IconArrowRight className="h-4 w-4 shrink-0 rotate-45 text-[var(--muted)] transition md:group-hover/rl:text-[var(--accent)]" />
+                  <IconArrowRight
+                    orientation="up"
+                    className="h-5 w-5 shrink-0 rotate-45 text-[var(--muted)] transition duration-300 md:group-hover/rl:text-[var(--accent)]"
+                  />
                 </span>
-                <p className="mt-2 text-xs font-medium uppercase tracking-wide text-[var(--muted)] md:text-sm">
-                  {project.tag}
-                </p>
               </div>
               <p className="lab-prose flex-1 text-base leading-relaxed text-[var(--foreground)]/80 md:text-lg">
                 {project.description}

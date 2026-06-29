@@ -116,6 +116,29 @@ export default function ShipPrincipleIcon({ id, className = "" }: Props) {
           />
         </svg>
       );
+    case "ai":
+      return (
+        <svg className={cls} viewBox="0 0 24 24" fill="none" aria-hidden>
+          <path
+            d="M12 4.5c-2.8 0-5 2.2-5 5 0 1.9 1.1 3.6 2.7 4.4-.4.8-.7 1.7-.7 2.6 0 .6.5 1.1 1.1 1.1.7 0 1.3-.2 1.9-.5.6.3 1.2.5 1.9.5.6 0 1.1-.5 1.1-1.1 0-.9-.3-1.8-.7-2.6 1.6-.8 2.7-2.5 2.7-4.4 0-2.8-2.2-5-5-5z"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            strokeLinejoin="round"
+          />
+          <path
+            d="M8.5 18.5c.8.6 1.8 1 3 1s2.2-.4 3-1"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+          />
+          <path
+            d="M9 9.5h.01M12 9.5h.01M15 9.5h.01"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+          />
+        </svg>
+      );
     default:
       return null;
   }

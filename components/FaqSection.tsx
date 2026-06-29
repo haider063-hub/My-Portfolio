@@ -59,7 +59,7 @@ export default function FaqSection({
               onClick={() => setOpenIndex(isOpen ? null : i)}
             >
               <span
-                className={`min-w-0 flex-1 pr-1 font-display text-base font-semibold leading-snug md:text-lg ${qClass[surface]}`}
+                className={`min-w-0 flex-1 pr-1 font-display lab-faq-question leading-snug ${qClass[surface]}`}
               >
                 {item.question}
               </span>

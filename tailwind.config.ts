@@ -15,7 +15,6 @@ export default {
       fontFamily: {
         sans: ["var(--font-dm)", "system-ui", "sans-serif"],
         display: ["var(--font-heading)", "Georgia", "serif"],
-        brand: ["var(--font-syne)", "var(--font-dm)", "system-ui", "sans-serif"],
       },
     },
   },
