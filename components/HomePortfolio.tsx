@@ -152,7 +152,7 @@ export default function HomePortfolio() {
                 </div>
                 <div className="hero-line mt-1.5 text-[var(--foreground)]">for production.</div>
               </h1>
-              <p className="hero-sub mt-5 max-w-2xl text-lg leading-relaxed text-[var(--muted)] md:text-xl">
+              <p className="hero-sub mt-5 max-w-none text-lg leading-relaxed text-[var(--muted)] md:max-w-xl md:text-xl">
                 Shipping production AI products and Webflow sites for teams in the UK, UAE,
                 and US.
               </p>
@@ -209,8 +209,8 @@ export default function HomePortfolio() {
                   design to auth, billing, and production deployment.
                 </p>
                 <p className="mt-6">
-                  Recent builds include a clinical longevity platform (GeneFuel) and an AI therapy
-                  platform (EchoNest). Both are live in production serving real UK clients.
+                  Currently building GeneFuel, a production clinical longevity platform for UK
+                  health tech — live and actively shipping.
                 </p>
               </div>
               <ul className="space-y-8 text-lg md:text-xl">
