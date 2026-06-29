@@ -153,8 +153,8 @@ export default function HomePortfolio() {
                 <div className="hero-line mt-1.5 text-[var(--foreground)]">for production.</div>
               </h1>
               <p className="hero-sub mt-5 max-w-2xl text-lg leading-relaxed text-[var(--muted)] md:text-xl">
-                Next.js, RAG pipelines, TypeScript — shipping production AI SaaS and Webflow sites
-                for UK, UAE, and US teams.
+                Shipping production AI products and Webflow sites for teams in the UK, UAE,
+                and US.
               </p>
               <div className="mt-6 flex flex-wrap items-center gap-4 md:mt-7 md:gap-5">
                 <a
